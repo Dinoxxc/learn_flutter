@@ -1,4 +1,4 @@
-// ignore_for_file: library_private_types_in_public_api
+// ignore_for_file: deprecated_member_use, library_private_types_in_public_api, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 
@@ -15,6 +15,19 @@ class MyApp extends StatelessWidget {
       title: 'CV App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme: const TextTheme(
+          headline1: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+          headline2: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+          bodyText1: TextStyle(fontSize: 16, color: Colors.white),
+        ),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.blue,
+          titleTextStyle: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
       ),
       home: const MyHomePage(),
     );
@@ -53,27 +66,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-              const Text('Name: Andika Noor Ismawan'),
+              const Text('Name: Andika Noor Ismawan', style: TextStyle(fontSize: 16)),
               const SizedBox(height: 4),
-              const Text('Date of Birth: October 18th, 2000'),
+              const Text('Date of Birth: October 18th, 2000', style: TextStyle(fontSize: 16)),
               const SizedBox(height: 4),
-              const Text('Email: noorismawanandika@student.esaunggul.ac.id'),
+              const Text('Email: noorismawanandika@student.esaunggul.ac.id', style: TextStyle(fontSize: 16)),
               const SizedBox(height: 4),
-              const Text('Phone: +6281312004621'),
+              const Text('Phone: +6281312004621', style: TextStyle(fontSize: 16)),
               const SizedBox(height: 16),
               const Text(
                 'Riwayat Pekerjaan',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-              ..._buildWorkExperienceList(),
+             ..._buildWorkExperienceList(),
               const SizedBox(height: 16),
               const Text(
                 'Pendidikan',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-              ..._buildEducationList(),
+             ..._buildEducationList(),
             ],
           ),
         ),
@@ -83,34 +96,44 @@ class _MyHomePageState extends State<MyHomePage> {
 
   List<Widget> _buildWorkExperienceList() {
     return [
-      const Text('Company Name: Kriptonesia'),
-      const SizedBox(height: 4),
-      const Text('Job Title: Community Manager'),
-      const SizedBox(height: 4),
-      const Text('Duration: 2020 - 2022'),
-      const SizedBox(height: 16),
-      const Text('Company Name: PT. Polllux Properties Indonesia'),
-      const SizedBox(height: 4),
-      const Text('Job Title: IT Support'),
-      const SizedBox(height: 4),
-      const Text('Duration: 2022 - 2023'),
-      const SizedBox(height: 16),
-      const Text('Company Name: PT. Arnawa Teknologi Informasi'),
-      const SizedBox(height: 4),
-      const Text('Job Title: UI/UX & Product Manager'),
-      const SizedBox(height: 4),
-      const Text('Duration: 2023 - Present'),
+      ListTile(
+        leading: const Icon(Icons.business, color: Colors.blue),
+        title: const Text('Company Name: Kriptonesia', style: TextStyle(fontSize: 16)),
+        subtitle: const Text('Job Title: Community Manager', style: TextStyle(fontSize: 14)),
+        trailing: const Text('2020 - 2022', style: TextStyle(fontSize: 14)),
+      ),
+      const SizedBox(height: 8),
+      ListTile(
+        leading: const Icon(Icons.business, color: Colors.blue),
+        title: const Text('Company Name: PT. Polllux Properties Indonesia', style: TextStyle(fontSize: 16)),
+        subtitle: const Text('Job Title: IT Support', style: TextStyle(fontSize: 14)),
+        trailing: const Text('2022 - 2023', style: TextStyle(fontSize: 14)),
+      ),
+      const SizedBox(height: 8),
+      ListTile(
+        leading: const Icon(Icons.business, color: Colors.blue),
+        title: const Text('Company Name: PT. Arnawa Teknologi Informasi', style: TextStyle(fontSize: 16)),
+        subtitle: const Text('Job Title: UI/UX & Product Manager', style: TextStyle(fontSize: 14)),
+        trailing: const Text('2023 - Present', style: TextStyle(fontSize: 14)),
+      ),
     ];
   }
 
   List<Widget> _buildEducationList() {
     return [
-      const Text('Degree: Bachelor of Science in Computer Science'),
-      const SizedBox(height: 4),
-      const Text('Institution: Universitas Esa Unggul'),
-      const SizedBox(height: 4),
-      const Text('Duration: 2021 - Present'),
-      const SizedBox(height: 16),
+      ListTile(
+        leading: const Icon(Icons.school, color: Colors.blue),
+        title: const Text('Degree: Bachelor of Science in Computer Science', style: TextStyle(fontSize: 16)),
+        subtitle: const Text('Institution: Universitas Esa Unggul', style: TextStyle(fontSize: 14)),
+        trailing: const Text('2021- Present', style: TextStyle(fontSize: 14)),
+      ),
+      const SizedBox(height: 8),
+      ListTile(
+        leading: const Icon(Icons.school, color: Colors.blue),
+        title: const Text('Degree: Science', style: TextStyle(fontSize: 16)),
+        subtitle: const Text('Institution: SMA Negeri 73 Jakarta', style: TextStyle(fontSize: 14)),
+        trailing: const Text('2015 - 2028', style: TextStyle(fontSize: 14)),
+      ),
     ];
   }
 }
